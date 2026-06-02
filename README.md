@@ -1,43 +1,65 @@
-# Bank Fraud Detection Using Machine Learning | End-to-End Data Science Interview Project | Python
+# Bank Fraud Detection Using Machine Learning
 
-![SQL_Thumbnail](https://github.com/user-attachments/assets/6e85eb86-03b2-40f9-8f44-931b22c0c70b)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Latest-orange.svg)](https://scikit-learn.org/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-Framework-green.svg)](https://xgboost.readthedocs.io/)
 
-Learn how to build a **Bank Fraud Detection Project** using Machine Learning in Python! 🚀  
-In this full end-to-end tutorial, we solve a real-world financial fraud problem and show how ML models can help banks detect suspicious transactions and prevent monetary loss.
-
-This Fraud Detection Machine Learning Project is perfect for data science, AI, and ML enthusiasts who want to build a strong portfolio project and learn how fraud analytics works in real banking systems — especially useful for **data science interview assignments**.
-
-📺 **YouTube Link:** [Watch the Tutorial](https://youtu.be/7lPNOP4dFN0?si=1J7DSQBrMAbXkoTD)
+An end-to-end data science and machine learning pipeline designed to detect fraudulent financial transactions. This repository demonstrates how advanced analytics, feature engineering, and class-imbalance techniques can be leveraged to mitigate monetary risk and secure banking ecosystems.
 
 ---
 
-## What This Project Covers
+## 📌 Project Overview
 
-We cover the **entire pipeline** — from understanding raw transaction data to building high-performance fraud detection models — explained step-by-step in a practical, interview-ready approach.
+Financial fraud costs institutions billions of dollars annually. This project implements a robust binary classification framework to identify suspicious transactions out of highly imbalanced banking data. 
 
-### 🧠 What You’ll Learn
+By analyzing transactional behaviors, account balances, and historical flags, the machine learning models built here optimize the trade-off between capturing maximum fraud (Recall) and minimizing disruptions to legitimate customers (Precision).
 
-- ✅ How to understand and frame a real fraud detection business problem  
-- ✅ Perform in-depth Exploratory Data Analysis (EDA) on transaction data  
-- ✅ Handle extreme class imbalance in fraud datasets  
-- ✅ Engineer powerful features like balance differences & high-amount flags  
-- ✅ Detect fraud patterns using transaction type & time behavior  
-- ✅ Build and compare ML models — Logistic Regression, Random Forest, XGBoost  
-- ✅ Evaluate models using ROC-AUC, PR-AUC, Precision, Recall & F1-score  
-- ✅ Optimize decision thresholds to reduce false positives  
-- ✅ Test model performance using confusion matrix & fraud recall metrics  
-- ✅ Understand how ML fraud systems reduce financial risk in production  
+### 🔍 Key Implementation Focus Areas
+* **Imbalanced Data Management:** Handling extreme class distribution skewness (where fraud accounts for a fraction of a percent of total data).
+* **Financial Feature Engineering:** Crafting balance-delta indicators and behavioral flags to expose anomalies.
+* **Threshold Optimization:** Moving beyond default classification thresholds to map model predictions directly to business risk metrics.
 
-### 🧩 Tools & Libraries Used
+---
 
-Python | Pandas | NumPy | Matplotlib | Seaborn | Scikit-learn | XGBoost | Joblib
+## 🧠 Core Pipeline & Workflow
 
-💼 Project Type:
+### 1. Exploratory Data Analysis (EDA)
+* Dissected transaction types, volume distributions, and temporal patterns.
+* Analyzed the statistical correlation between sudden drops in destination account balances and confirmed fraudulent activities.
 
-Machine Learning | Data Science | Fraud Analytics | Financial Risk Modeling | Classification | Imbalanced ML | End-to-End Python Project | Interview Preparation
+### 2. Feature Engineering
+* Calculated precise balance discrepancies: `NewBalance - OldBalance`.
+* Generated behavioral flags focusing on high-amount thresholds and rapid-succession transfer types.
 
-🔔 Don’t Forget To:
+### 3. Model Architecture & Training
+Compared three distinct algorithmic approaches to discover the optimal decision boundary:
+* **Logistic Regression:** Established a baseline linear model.
+* **Random Forest Classifier:** Captured non-linear interactions via ensemble tree structures.
+* **XGBoost (Extreme Gradient Boosting):** Fine-tuned to maximize gradient descent efficiency on complex tabular data.
 
-👍 Like | 💬 Comment | 🔔 Subscribe for more AI, ML, and Data Science Projects: @SouvikChai
+### 4. Evaluation Metrics
+Standard accuracy is highly misleading in fraud analytics. Instead, this system evaluates performance using:
+* **Precision-Recall AUC (PR-AUC)**
+* **ROC-AUC**
+* **Confusion Matrix Profiling**
+* **Fraud Recall / Sensitivity**
 
-📢 Share this project with your friends who are learning Machine Learning, Data Science and Python!
+---
+
+## 🧩 Tech Stack & Dependencies
+
+* **Language:** Python
+* **Data Manipulation:** Pandas, NumPy
+* **Visualization:** Matplotlib, Seaborn
+* **Machine Learning:** Scikit-Learn, XGBoost
+* **Model Serialization:** Joblib
+
+---
+
+## 📂 Repository Structure
+
+```text
+├── Analysis.ipynb            # Jupyter Notebook containing full EDA, training, and evaluation
+├── Assigment Task.pdf        # Contextual dataset documentation and constraints
+├── best_fraud_model_tuned.pkl # Serialized, production-ready XGBoost/Random Forest model
+└── README.md                 # Project documentation
